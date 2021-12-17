@@ -23,4 +23,10 @@ RUN npm run build
 EXPOSE 8080
 CMD [ "http-server", "dist" ]
 
+#BUILD: docker build -t <NAME> .
+
 #RUN FROM CLI LIKE THIS: docker run -p 8080:8080 -d zemtard/awavesstream
+
+##problem might be because npm build creates index.html with undefined paths. ??how to fix??
+
+##changing publicPath:'./' un vue.config.js and rebuilding project seems to work
