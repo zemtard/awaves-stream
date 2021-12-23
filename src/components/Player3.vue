@@ -1,5 +1,8 @@
 <template>
   <div>
+
+
+
     <div>
       <img class="logo noselect" :src="require('/src/assets/logoWhite.png')" />
     </div>
@@ -7,6 +10,11 @@
     <div class="welcome">
       <h1 class="welcome-text noselect">SELECT YOUR DJ</h1>
       <h1 class="welcome-text noselect">AND ENJOY.</h1>
+    </div>
+
+
+        <div>
+      <h2 class="currsong">{{ current.title }} - {{ current.artist }}</h2>
     </div>
 
     <div class="player">
@@ -77,6 +85,7 @@
         <!-- <button class="pause" v-else @click="pause">Pause</button> -->
       </div>
     </div>
+    <button class="nextsong ease" @click="next">SKIP</button>
   </div>
 </template>
 
@@ -116,6 +125,36 @@ export default {
           title: "Too Easy (Clean)",
           artist: "Gunna & Future",
           src: "HH4.mp3",
+        },
+        {
+          title: "California Love - Rogerson & Ray Montreal Remix",
+          artist: "2Pac",
+          src: "HH5.mp3",
+        },
+                {
+          title: "In Da Club - Tall Boys Best Friend Edit (Clean)",
+          artist: "50 Cent",
+          src: "HH6.mp3",
+        },
+                {
+          title: "Whoopty (Clean)",
+          artist: "CJ",
+          src: "HH7.mp3",
+        },
+                {
+          title: "Still Ballin' - Ricky Retro & LILO Remix (Dirty)",
+          artist: "2Pac",
+          src: "HH8.mp3",
+        },
+                {
+          title: "Fair Trade (Clean)",
+          artist: "Drake",
+          src: "HH9.mp3",
+        },
+                {
+          title: "Ruff Ryders' Anthem - Richastic Remix (Clean)",
+          artist: "DMX",
+          src: "HH10.mp3",
         },
       ],
 
@@ -163,6 +202,38 @@ export default {
           artist: "Durand Jones & The Indications",
           src: "C4.mp3",
         },
+        {
+          title: "Baby By Me - Rich Tanner Remix (Clean)",
+          artist: "50 Cent",
+          src: "C5.mp3",
+        },
+        {
+          title: "Try",
+          artist: "Magic Flowers",
+          src: "C6.mp3",
+        },
+        {
+          title: "MISUNDERSTOOD",
+          artist: "Russ",
+          src: "C7.mp3",
+        },
+        {
+          title: "No Idea - Jabair Remix",
+          artist: "Don Toliver",
+          src: "C8.mp3",
+        },
+        {
+          title: "Me & U - DJU DJU & Esentrik Remix",
+          artist: "Cassie",
+          src: "C9.mp3",
+        },
+        {
+          title: "2021",
+          artist: "Lauv",
+          src: "C10.mp3",
+        },
+
+        
       ],
 
       songsParty: [
@@ -210,7 +281,9 @@ export default {
   },
 
   mounted() {
+
     console.log("Component is mounted");
+    this.current = this.songsChill[0];
     document
       .querySelector("body")
       .setAttribute(
@@ -294,6 +367,7 @@ export default {
         },
       });
       this.player.play();
+      this.isPlaying = true;
     },
 
     switchPlaylists(src) {
@@ -332,6 +406,7 @@ export default {
         this.index = 0;
         //this.isPlaying = false;
         this.switchPlaylists(this.songsHipHop[this.index].src);
+        this.current = this.songsHipHop[this.index];
         //document.getElementById('easeDJ').style.WebkitTransition = 'opacity 1s';
         document
           .querySelector("body")
@@ -351,6 +426,7 @@ export default {
         this.index = 0;
         // this.isPlaying = false;
         this.switchPlaylists(this.songsChill[this.index].src);
+        this.current = this.songsChill[this.index];
         document
           .querySelector("body")
           .setAttribute(
@@ -368,6 +444,7 @@ export default {
         this.index = 0;
         // this.isPlaying = false;
         this.switchPlaylists(this.songsHouse[this.index].src);
+        this.current = this.songsHouse[this.index];
         document
           .querySelector("body")
           .setAttribute(
@@ -385,6 +462,7 @@ export default {
         this.index = 0;
         //this.isPlaying = false;
         this.switchPlaylists(this.songsParty[this.index].src);
+        this.current = this.songsParty[this.index];
         document
           .querySelector("body")
           .setAttribute(
@@ -450,6 +528,8 @@ export default {
   //top: 4vh;
 }
 
+
+
 .ease {
   -webkit-transition: background-color 0.8s ease-out;
   // -moz-transition: background-color 0.8s ease-out;
@@ -474,6 +554,14 @@ export default {
                                   not supported by any browser */
 }
 
+.currsong{
+  position: absolute;
+  color: white;
+  left:65vw;
+  top: 90vh;
+  font-size: 1vw;
+
+}
 
 .welcome {
   position: absolute;
@@ -613,7 +701,6 @@ export default {
   left: 3vw;
   top: 37vh;
   overflow: visible;
-  cursor: pointer;
   background-color: rgb(31, 26, 55);
   color: white;
   font-family: "Poppins Black";
@@ -693,4 +780,26 @@ export default {
   width: 125px;
   height: 125px;
 }
+
+.nextsong{
+  position: absolute;
+  left: 58vw;
+  top: 56vh;
+    width: 8vw;
+  height: 8vh;
+  background-color: rgb(31, 26, 55);
+  color: white;
+  font-family: "Poppins Black";
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 15px;
+  border: 2px solid white;
+}
+
+.nextsong:hover{
+  background-color: rgb(59, 50, 101);
+  cursor: pointer;
+}
+
+
 </style>
