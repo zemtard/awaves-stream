@@ -15,12 +15,16 @@
 // import HelloWorld from "@/components/HelloWorld.vue";
 import Player3 from "@/components/Player3.vue";
 import Player3M from "@/components/Player3M.vue";
+import Player2 from "@/components/Player2.vue";
+import Player from "@/components/Player.vue";
 export default {
   name: "v3",
   components: {
     Player3,
     Player3M,
-  },
+    Player2,
+    Player
+      },
 
 methods : {
 

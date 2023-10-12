@@ -346,14 +346,11 @@ opacity: 50%;
 }
 
 .dj-hip-hop.selected{
-  //background-image: url('/assets/gDJ.png');
-
   position: absolute;
   width: 155px;
   height: 155px;
   opacity: 0.75;
   transition: height 0.2s, width 0.2s, opacity 0.2;
-
 }
 
 .dj-house{

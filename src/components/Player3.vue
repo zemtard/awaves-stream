@@ -308,7 +308,6 @@ export default {
       //CREATE NEXT
       console.log("Next");
       this.ended = false;
-      console.log("ended: " + this.ended);
       this.index++;
 
       if (this.dj == 1) {
